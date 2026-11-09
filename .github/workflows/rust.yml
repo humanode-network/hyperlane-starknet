@@ -30,10 +30,13 @@ jobs:
 
       - name: Install starknet-devnet
         run: |
-          cargo install starknet-devnet --locked
+          rustup toolchain install 1.85.0 --profile minimal
+          cargo +1.85.0 install starknet-devnet --version 0.4.2 --locked
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.2.1
 
       - name: Run starknet-devnet
         run: |
